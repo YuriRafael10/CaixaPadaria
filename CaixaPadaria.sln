@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaixaPadaria", "CaixaPadaria\CaixaPadaria.csproj", "{5CD8B973-D05C-46BC-B3D8-5A3C6297FA3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CD8B973-D05C-46BC-B3D8-5A3C6297FA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD8B973-D05C-46BC-B3D8-5A3C6297FA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD8B973-D05C-46BC-B3D8-5A3C6297FA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD8B973-D05C-46BC-B3D8-5A3C6297FA3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74CDA84B-5C50-426A-AAE1-958EAEEE8D5A}
+	EndGlobalSection
+EndGlobal

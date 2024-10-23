@@ -1,0 +1,33 @@
+﻿<Window x:Class="CaixaPadaria.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaixaPadaria.Views"
+        mc:Ignorable="d"
+        Title="Login" 
+        Background="AliceBlue"
+        Height="550" Width="600">
+    <Border x:Name="LoginBorder"
+            Style="{StaticResource LoginBorder}">
+        <StackPanel Orientation="Vertical"
+                    Margin="20">
+            <TextBlock Text="Login"
+                       Style="{StaticResource LoginTextBlock}"/>
+            <Grid VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Usuário" Style="{StaticResource DefaultTextBlock}"/>
+                <TextBox Grid.Row="1" Style="{StaticResource LoginTextBox}"/>
+                <TextBlock Grid.Row="2" Text="Senha" Style="{StaticResource DefaultTextBlock}"/>
+                <PasswordBox Grid.Row="3" Style="{StaticResource LoginPasswordBox}"/>
+            </Grid>
+            <Button x:Name="LoginBtn"
+                    Style="{StaticResource LoginButtonStyle}"/>
+        </StackPanel>
+    </Border>
+</Window>

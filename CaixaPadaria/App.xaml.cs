@@ -1,4 +1,8 @@
-﻿using CaixaPadaria.Views;
+﻿using CaixaPadaria.Context;
+using CaixaPadaria.Services;
+using CaixaPadaria.Views;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -12,9 +16,16 @@ namespace CaixaPadaria
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);
+
+            using (var context = new AppDbContext())
+            {
+                var dbInitializer = new DatabaseInitializer(context);
+                dbInitializer.Initialize();
+            }
+
             MainWindow = new LoginWindow();
             MainWindow.Show();
-            base.OnStartup(e);
         }
     }
 

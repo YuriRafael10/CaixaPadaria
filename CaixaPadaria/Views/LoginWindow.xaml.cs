@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using CaixaPadaria.Context;
+using CaixaPadaria.Models;
 
 namespace CaixaPadaria.Views
 {
@@ -22,6 +15,36 @@ namespace CaixaPadaria.Views
         public LoginWindow()
         {
             InitializeComponent();
+            LoginBtn.Click += SubmitClick;
+        }
+
+        private void SubmitClick(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+
+            using (var context = new AppDbContext())
+            {
+                var user = context.Users
+                    .Where(u => u.Name == username && u.Password == password)
+                    .FirstOrDefault();
+
+                if (user != null)
+                {
+                    GrantAccess();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou senha incorretos.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        public void GrantAccess()
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }

@@ -22,9 +22,9 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Text="Usuário" Style="{StaticResource DefaultTextBlock}"/>
-                <TextBox Grid.Row="1" Style="{StaticResource LoginTextBox}"/>
+                <TextBox x:Name="UsernameTextBox" Grid.Row="1" Style="{StaticResource LoginTextBox}"/>
                 <TextBlock Grid.Row="2" Text="Senha" Style="{StaticResource DefaultTextBlock}"/>
-                <PasswordBox Grid.Row="3" Style="{StaticResource LoginPasswordBox}"/>
+                <PasswordBox x:Name="PasswordBox" Grid.Row="3" Style="{StaticResource LoginPasswordBox}"/>
             </Grid>
             <Button x:Name="LoginBtn"
                     Style="{StaticResource LoginButtonStyle}"/>

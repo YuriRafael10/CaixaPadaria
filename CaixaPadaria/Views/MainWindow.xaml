@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CaixaPadaria"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Background="White"
+        Title="MainWindow" Height="768" Width="1024">
 
+    <Grid Cursor="">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0,25*"/>
+            <ColumnDefinition Width="0,75*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="DarkRed">
+            
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Image x:Name="logoPadaria" Source="assets/logopadaria.png" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1,0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,0,25">
+                    <TextBlock Text="Quantidade:" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"/>
+                    <TextBox Text="1,000" Width="60" FontSize="20" HorizontalContentAlignment="Center" Margin="0,0,10,0" Background="Black" Foreground="White" VerticalAlignment="Center" SelectionBrush="Black" BorderBrush="Black" SelectionTextBrush="Black"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20">
+                <Button x:Name="RegistrarBtn" Style="{StaticResource RegistrarButtonStyle}" Content="REGISTRAR PRODUTO" Cursor="Hand" FontWeight="Normal"/>
+                <Image Source="assets/settings.png" Width="35" Height="35" Margin="10,0,0,0" Cursor="Hand" Style="{StaticResource settingsImg}"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CaixaPadaria
+namespace CaixaPadaria.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -20,5 +20,18 @@ namespace CaixaPadaria
         {
             InitializeComponent();
         }
+
+        private void ConfirmBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SettingsIcon_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Instancia e exibe a nova janela
+            ConfigWindow configWindow = new ConfigWindow();
+            configWindow.ShowDialog(); // Usar ShowDialog para janela modal ou Show para janela não-modal
+        }
+
     }
 }

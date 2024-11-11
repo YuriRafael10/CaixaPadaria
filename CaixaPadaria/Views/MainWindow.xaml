@@ -1,4 +1,4 @@
-﻿<Window x:Class="CaixaPadaria.MainWindow"
+﻿<Window x:Class="CaixaPadaria.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="DarkRed">
-            
+
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Image x:Name="logoPadaria" Source="assets/logopadaria.png" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,0,25">
@@ -25,9 +25,11 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20">
-                <Button x:Name="RegistrarBtn" Style="{StaticResource RegistrarButtonStyle}" Content="REGISTRAR PRODUTO" Cursor="Hand" FontWeight="Normal"/>
-                <Image Source="assets/settings.png" Width="35" Height="35" Margin="10,0,0,0" Cursor="Hand" Style="{StaticResource settingsImg}"/>
+                <Button x:Name="ConfirmBtn" Style="{StaticResource ConfirmButtonStyle}" Content="FINALIZAR COMPRA" Cursor="Hand" FontWeight="Normal" Click="ConfirmBtn_Click"/>
+                <Image Source="assets/settings.png" Width="35" Height="35" Margin="10,0,0,0" Cursor="Hand" 
+           MouseLeftButtonDown="SettingsIcon_Click" Style="{StaticResource settingsImg}"/>
             </StackPanel>
+
         </Grid>
     </Grid>
 </Window>

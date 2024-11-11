@@ -24,7 +24,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="RegistrarButtonStyle" TargetType="Button">
+    <Style x:Key="ConfirmButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="150"/>
         <Setter Property="Height" Value="40"/>
         <Setter Property="Margin" Value="0,25"/>
@@ -35,13 +35,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="RegisterBtnBorder" Background="{TemplateBinding Background}" CornerRadius="16">
+                    <Border x:Name="ConfirmButtonStyle" Background="{TemplateBinding Background}" CornerRadius="16">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray" TargetName="RegisterBtnBorder"></Setter>
-                            <Setter Property="TextBlock.Foreground" Value="Black" TargetName="RegisterBtnBorder"></Setter>
+                            <Setter Property="Background" Value="LightGray" TargetName="ConfirmButtonStyle"></Setter>
+                            <Setter Property="TextBlock.Foreground" Value="Black" TargetName="ConfirmButtonStyle"></Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

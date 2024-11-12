@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Login" 
         Background="AliceBlue"
-        Height="550" Width="600">
+        Height="550" Width="600"
+        WindowStartupLocation="CenterScreen" Cursor="">
     <Border x:Name="LoginBorder"
             Style="{StaticResource LoginBorder}">
         <StackPanel Orientation="Vertical"

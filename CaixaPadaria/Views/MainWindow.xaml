@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:CaixaPadaria"
         mc:Ignorable="d"
         Background="White"
-        Title="MainWindow" Height="768" Width="1024">
+        Title="MainWindow" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
 
     <Grid Cursor="">
         <Grid.ColumnDefinitions>
@@ -15,7 +16,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="DarkRed">
-
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Image x:Name="logoPadaria" Source="assets/logopadaria.png" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,0,0,25">

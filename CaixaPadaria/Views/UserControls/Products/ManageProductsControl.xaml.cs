@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaixaPadaria.Views.UserControls.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace CaixaPadaria.Views.UserControls
         }
         private void AddProductButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para registrar um novo produto
+            ContentArea.Content = new RegisterProductControl();
         }
 
         private void EditProductButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +42,7 @@ namespace CaixaPadaria.Views.UserControls
 
         private void AddBrandButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para registrar uma nova marca
+            ContentArea.Content = new RegisterBrandControl();
         }
 
         private void EditBrandButton_Click(object sender, RoutedEventArgs e)
@@ -56,7 +57,7 @@ namespace CaixaPadaria.Views.UserControls
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para registrar uma nova categoria
+            ContentArea.Content = new RegisterCategoryControl();
         }
 
         private void EditCategoryButton_Click(object sender, RoutedEventArgs e)

@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="900">
+             d:DesignHeight="550" d:DesignWidth="840">
     <Grid>
         <Grid Background="White" Margin="20">
             <Grid.ColumnDefinitions>
@@ -37,5 +37,6 @@
                 <Button x:Name="DeleteCategoryButton" Style="{StaticResource ConfigButtonStyle}" Content="Excluir Categoria" Click="DeleteCategoryButton_Click"/>
             </StackPanel>
         </Grid>
+        <ContentControl x:Name="ContentArea" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </UserControl>

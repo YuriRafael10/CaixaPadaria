@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\Assets\Icons\addProd.png" />
+    <None Remove="Views\Assets\Icons\cashClosing.png" />
+    <None Remove="Views\Assets\Icons\mngProd.png" />
+    <None Remove="Views\Assets\Icons\mngUsers.png" />
     <None Remove="Views\Assets\logopadaria.png" />
     <None Remove="Views\Assets\settings.png" />
   </ItemGroup>
@@ -25,7 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\Assets\Icons\addProd.png" />
+    <Resource Include="Views\Assets\Icons\cashClosing.png" />
+    <Resource Include="Views\Assets\Icons\mngProd.png" />
+    <Resource Include="Views\Assets\Icons\mngUsers.png" />
     <Resource Include="Views\Assets\logopadaria.png" />
     <Resource Include="Views\Assets\settings.png" />
   </ItemGroup>

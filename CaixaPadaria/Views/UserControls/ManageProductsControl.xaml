@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="CaixaPadaria.Views.UserControls.ManageProductsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="900">
+    <Grid>
+        <Grid Background="White" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Seção Produtos -->
+            <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="PRODUTOS" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <Button x:Name="AddProductButton" Style="{StaticResource ConfigButtonStyle}" Content="Registrar Produto" Click="AddProductButton_Click"/>
+                <Button x:Name="EditProductButton" Style="{StaticResource ConfigButtonStyle}" Content="Editar Produto" Width="200" Height="50" Click="EditProductButton_Click" />
+                <Button x:Name="DeleteProductButton" Style="{StaticResource ConfigButtonStyle}" Content="Excluir Produto" Width="200" Height="50" Click="DeleteProductButton_Click"/>
+            </StackPanel>
+
+            <!-- Seção Marcas -->
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="MARCAS" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <Button x:Name="AddBrandButton" Style="{StaticResource ConfigButtonStyle}" Content="Registrar Marca" Click="AddBrandButton_Click"/>
+                <Button x:Name="EditBrandButton" Style="{StaticResource ConfigButtonStyle}" Content="Editar Marca" Click="EditBrandButton_Click"/>
+                <Button x:Name="DeleteBrandButton" Style="{StaticResource ConfigButtonStyle}" Content="Excluir Marca" Click="DeleteBrandButton_Click"/>
+            </StackPanel>
+
+            <!-- Seção Categorias -->
+            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="CATEGORIAS" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <Button x:Name="AddCategoryButton" Style="{StaticResource ConfigButtonStyle}" Content="Registrar Categoria" Click="AddCategoryButton_Click"/>
+                <Button x:Name="EditCategoryButton" Style="{StaticResource ConfigButtonStyle}" Content="Editar Categoria" Click="EditCategoryButton_Click"/>
+                <Button x:Name="DeleteCategoryButton" Style="{StaticResource ConfigButtonStyle}" Content="Excluir Categoria" Click="DeleteCategoryButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

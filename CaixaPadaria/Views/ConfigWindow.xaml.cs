@@ -25,8 +25,6 @@ namespace CaixaPadaria.Views
             InitializeComponent();
         }
 
-
-
         private void GerenciarContas_Click(object sender, RoutedEventArgs e)
         {
 

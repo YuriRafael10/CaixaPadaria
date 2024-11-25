@@ -21,7 +21,7 @@ namespace CaixaPadaria.Services
             {
                 var adminUser = new User
                 {
-                    Name = "admin",
+                    Name = "ADMIN",
                     Password = "admin123",
                     IsAdmin = true,
                     TotalSales = 0

@@ -1,4 +1,7 @@
 ﻿using CaixaPadaria.Views.UserControls.Products;
+using CaixaPadaria.Views.UserControls.Products.Register;
+using CaixaPadaria.Views.UserControls.Products.Edit;
+using CaixaPadaria.Views.UserControls.Products.Delete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +30,7 @@ namespace CaixaPadaria.Views.UserControls
         }
         private void AddProductButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentArea.Content = new RegisterProductControl();
+            
         }
 
         private void EditProductButton_Click(object sender, RoutedEventArgs e)
@@ -47,12 +50,12 @@ namespace CaixaPadaria.Views.UserControls
 
         private void EditBrandButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para editar uma marca
+            ContentArea.Content = new EditBrandControl();
         }
 
         private void DeleteBrandButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para excluir uma marca
+            ContentArea.Content = new DeleteBrandControl();
         }
 
         private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
@@ -62,12 +65,12 @@ namespace CaixaPadaria.Views.UserControls
 
         private void EditCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para editar uma categoria
+            ContentArea.Content = new EditCategoryControl();
         }
 
         private void DeleteCategoryButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para excluir uma categoria
+            ContentArea.Content = new DeleteCategoryControl();
         }
     }
 }

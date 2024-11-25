@@ -15,7 +15,7 @@ namespace CaixaPadaria.Models
         public int CategoryId { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(20)]
         public string? Name { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]

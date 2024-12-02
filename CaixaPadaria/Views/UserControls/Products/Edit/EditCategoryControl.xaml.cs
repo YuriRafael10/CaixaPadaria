@@ -69,6 +69,13 @@ namespace CaixaPadaria.Views.UserControls.Products.Edit
                 {
                     using (var context = new AppDbContext())
                     {
+                        bool nameExists = context.Categories.Any(c => c.Name == newName && c.CategoryId != selectedCategory.CategoryId);
+                        if (nameExists)
+                        {
+                            MessageBox.Show("Já existe uma categoria com este nome.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
                         var category = context.Categories.FirstOrDefault(b => b.CategoryId == b.CategoryId);
                         if (category != null)
                         {

@@ -6,7 +6,7 @@ namespace CaixaPadaria.Models
     public class Product
     {
         [Key]
-        public int ProductId { get; set; }
+        public long ProductId { get; set; } // ID será usado como código de barras
 
         [Required]
         [StringLength(100)]
@@ -14,7 +14,7 @@ namespace CaixaPadaria.Models
 
         [Column(TypeName = "decimal(10,2)")]
         [Range(0, double.MaxValue, ErrorMessage = "O preço de custo não pode ser negativo.")]
-        public decimal CostPrice { get; set; }
+        public decimal? CostPrice { get; set; } = 0; // Permitir nulo, mas tratar como 0 por padrão
 
         [Column(TypeName = "decimal(10,2)")]
         [Range(0, double.MaxValue, ErrorMessage = "O preço de venda não pode ser negativo.")]
@@ -22,10 +22,6 @@ namespace CaixaPadaria.Models
 
         [Range(0, int.MaxValue)]
         public int Quantity { get; set; } = 0;
-
-        [Required]
-        [StringLength(13, MinimumLength = 8, ErrorMessage = "O código de barras deve ter entre 8 e 13 dígitos.")]
-        public string? Barcode { get; set; }
 
         // Relacionamento com Marca
         public int BrandId { get; set; }

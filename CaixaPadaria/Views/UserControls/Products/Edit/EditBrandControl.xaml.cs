@@ -69,6 +69,13 @@ namespace CaixaPadaria.Views.UserControls.Products.Edit
                 {
                     using (var context = new AppDbContext())
                     {
+                        bool nameExists = context.Brands.Any(b => b.Name == newName && b.BrandId != selectedBrand.BrandId);
+                        if (nameExists)
+                        {
+                            MessageBox.Show("Já existe uma marca com este nome.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
                         var brand = context.Brands.FirstOrDefault(b => b.BrandId == selectedBrand.BrandId);
                         if (brand != null)
                         {

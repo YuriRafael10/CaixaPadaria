@@ -7,14 +7,17 @@
              mc:Ignorable="d" 
             d:DesignHeight="550" d:DesignWidth="840">
     <Grid Background="White">
-        <Grid Background="White" Margin="20" VerticalAlignment="Center">
+        <Grid Background="#e6e6e6" Margin="100" VerticalAlignment="Center">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="320" RenderingBias="Performance" ShadowDepth="1"/>
+            </Grid.Effect>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,10,0,10" HorizontalAlignment="Center">
                 <TextBlock Text="Selecionar Marca:" FontWeight="SemiBold" VerticalAlignment="Center" />
                 <ComboBox x:Name="BrandComboBox" 
                       Width="300" 
@@ -24,7 +27,7 @@
                       SelectionChanged="BrandComboBox_SelectionChanged" />
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
                 <TextBlock Text="Novo Nome:" FontWeight="SemiBold" VerticalAlignment="Center" />
                 <TextBox x:Name="NewBrandNameTextBox" 
                      Style="{StaticResource GeneralTextBox}" 
@@ -33,7 +36,7 @@
                      Margin="10,0,0,0"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
                 <Button Content="Salvar Alterações" 
                     Style="{StaticResource ConfigButtonStyle}" 
                     Background="#015E1F" 

@@ -30,7 +30,7 @@ namespace CaixaPadaria.Views.UserControls
         }
         private void AddProductButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            ContentArea.Content = new RegisterProductControl();
         }
 
         private void EditProductButton_Click(object sender, RoutedEventArgs e)

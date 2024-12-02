@@ -24,7 +24,7 @@ namespace CaixaPadaria
                 dbInitializer.Initialize();
             }
 
-            MainWindow = new MainWindow();
+            MainWindow = new LoginWindow();
             MainWindow.Show();
         }
     }

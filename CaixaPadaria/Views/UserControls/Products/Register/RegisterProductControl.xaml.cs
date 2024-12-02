@@ -45,7 +45,6 @@ namespace CaixaPadaria.Views.UserControls.Products.Register
         {
             string name = ProductNameTextBox.Text.Trim();
             decimal salePrice;
-            int quantity;
             long? barcode = string.IsNullOrWhiteSpace(BarcodeTextBox.Text) ? null : long.Parse(BarcodeTextBox.Text);
 
             if (string.IsNullOrWhiteSpace(name))
@@ -60,15 +59,13 @@ namespace CaixaPadaria.Views.UserControls.Products.Register
                 return;
             }
 
-            if (!int.TryParse(QuantityTextBox.Text, out quantity) || quantity < 0)
-            {
-                MessageBox.Show("Quantidade inválida.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            int? quantity = string.IsNullOrWhiteSpace(CostPriceTextBox.Text)
+                ? null
+                : int.Parse(CostPriceTextBox.Text);
 
             decimal? costPrice = string.IsNullOrWhiteSpace(CostPriceTextBox.Text)
                 ? null
-                : decimal.Parse(CostPriceTextBox.Text); // Permitir nulo para custo
+                : decimal.Parse(CostPriceTextBox.Text);
 
             if (BrandComboBox.SelectedValue == null || CategoryComboBox.SelectedValue == null)
             {
@@ -80,13 +77,53 @@ namespace CaixaPadaria.Views.UserControls.Products.Register
             {
                 using (var context = new AppDbContext())
                 {
+                    // Carregar todos os produtos no contexto
+                    var existingProductNames = context.Products.Select(p => p.Name.ToLower()).ToList();
+
+                    // Verificar se o nome já existe, ignorando maiúsculas/minúsculas
+                    if (existingProductNames.Contains(name.ToLower()))
+                    {
+                        MessageBox.Show("Já existe um produto cadastrado com esse nome.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Verificar se o código de barras foi informado e se já existe
+                    if (barcode.HasValue && context.Products.Any(p => p.ProductId == barcode.Value))
+                    {
+                        MessageBox.Show("O código de barras já está cadastrado para outro produto.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                    // Caso o código de barras não tenha sido informado, buscar o menor código disponível
+                    if (!barcode.HasValue)
+                    {
+                        // Carregar todos os IDs de produtos existentes
+                        var existingIds = context.Products.Select(p => p.ProductId).OrderBy(p => p).ToList();
+
+                        // Encontrar o menor número disponível (vago) no intervalo
+                        long newBarcode = 1;
+                        foreach (var id in existingIds)
+                        {
+                            if (id == newBarcode)
+                            {
+                                newBarcode++; // Se o ID atual for o esperado, incrementa
+                            }
+                            else
+                            {
+                                break; // O primeiro ID faltante é encontrado
+                            }
+                        }
+
+                        barcode = newBarcode; // Atribui o primeiro código disponível
+                    }
+
                     Product product = new Product
                     {
-                        ProductId = barcode ?? 0, // Usar o valor inserido ou deixar como 0 para auto incremento
+                        ProductId = barcode.Value, // Usar o valor gerado ou o informado
                         Name = name,
                         CostPrice = costPrice ?? 0, // Tratar nulo como 0
                         SalePrice = salePrice,
-                        Quantity = quantity,
+                        Quantity = quantity ?? 0,
                         BrandId = (int)BrandComboBox.SelectedValue,
                         CategoryId = (int)CategoryComboBox.SelectedValue
                     };
@@ -103,6 +140,7 @@ namespace CaixaPadaria.Views.UserControls.Products.Register
                 MessageBox.Show($"Erro ao salvar o produto: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             ClearFields();

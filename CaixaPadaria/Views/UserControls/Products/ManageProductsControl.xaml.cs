@@ -35,7 +35,7 @@ namespace CaixaPadaria.Views.UserControls
 
         private void EditProductButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para editar um produto
+            ContentArea.Content = new EditProductControl();
         }
 
         private void DeleteProductButton_Click(object sender, RoutedEventArgs e)

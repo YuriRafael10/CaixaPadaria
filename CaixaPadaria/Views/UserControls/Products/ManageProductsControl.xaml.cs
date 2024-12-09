@@ -40,7 +40,7 @@ namespace CaixaPadaria.Views.UserControls
 
         private void DeleteProductButton_Click(object sender, RoutedEventArgs e)
         {
-            // Lógica para excluir um produto
+            ContentArea.Content = new DeleteProductControl();
         }
 
         private void AddBrandButton_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="CaixaPadaria.Views.UserControls.Products.Delete.DeleteProductControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="840">
+    <Grid Background="White">
+        <Grid Background="#e6e6e6" Margin="100" VerticalAlignment="Center">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="320" RenderingBias="Performance" ShadowDepth="1"/>
+            </Grid.Effect>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Busca por Código -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,5">
+                <TextBlock Text="Buscar por Código:" FontWeight="SemiBold" VerticalAlignment="Center" />
+                <TextBox x:Name="SearchByCodeTextBox" 
+                         Width="200" 
+                         Margin="10,0,0,0" 
+                         VerticalAlignment="Center" />
+                <Button Content="Buscar" 
+                        Style="{StaticResource ConfigButtonStyle}" 
+                        Width="80" 
+                        Height="30" 
+                        Margin="10,0,0,0" 
+                        Click="SearchByCode_Click" />
+            </StackPanel>
+
+            <!-- Busca por Nome -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
+                <TextBlock Text="Buscar por Nome:" FontWeight="SemiBold" VerticalAlignment="Center" />
+                <TextBox x:Name="SearchByNameTextBox" 
+                         Width="200" 
+                         Margin="10,0,0,0" 
+                         VerticalAlignment="Center" 
+                         Style="{StaticResource GeneralTextBox}"/>
+                <Button Content="Buscar" 
+                        Style="{StaticResource ConfigButtonStyle}" 
+                        Width="80" 
+                        Height="30" 
+                        Margin="10,0,0,0" 
+                        Click="SearchByName_Click" />
+            </StackPanel>
+
+            <!-- Painel de Detalhes do Produto -->
+            <StackPanel Grid.Row="3" Margin="20" Visibility="Collapsed" x:Name="ProductDetailsPanel">
+                <TextBlock Text="Detalhes do Produto:" FontWeight="SemiBold" FontSize="16" Margin="0,0,0,5"/>
+                <TextBlock x:Name="ProductCodeText" Text="Código: " Margin="0,5,0,0"/>
+                <TextBlock x:Name="ProductNameText" Text="Nome: " Margin="0,5,0,0"/>
+                <TextBlock x:Name="ProductSalePriceText" Text="Preço de Venda: " Margin="0,5,0,0"/>
+                <TextBlock x:Name="ProductQuantityText" Text="Quantidade: " Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- Botões de Ação -->
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,5">
+                <Button Content="Apagar" 
+                        Style="{StaticResource ConfigButtonStyle}" 
+                        Background="#5E0101" 
+                        Width="120" 
+                        Height="40" 
+                        Margin="10" 
+                        Click="DeleteProduct_Click" />
+                <Button Content="Cancelar" 
+                        Style="{StaticResource ConfigButtonStyle}" 
+                        Background="#015E1F" 
+                        Width="120" 
+                        Height="40" 
+                        Margin="10" 
+                        Click="Cancel_Click" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

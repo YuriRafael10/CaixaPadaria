@@ -18,39 +18,22 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!-- Busca por Código -->
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,5">
-                <TextBlock Text="Buscar por Código:" FontWeight="SemiBold" VerticalAlignment="Center" />
-                <TextBox x:Name="SearchByCodeTextBox" 
+                <TextBlock Text="Buscar por Código/Nome:" FontWeight="SemiBold" VerticalAlignment="Center" />
+                <TextBox x:Name="SearchTextBox" 
                          Width="200" 
                          Margin="10,0,0,0" 
-                         VerticalAlignment="Center" />
-                <Button Content="Buscar" 
-                        Style="{StaticResource ConfigButtonStyle}" 
-                        Width="80" 
-                        Height="30" 
-                        Margin="10,0,0,0" 
-                        Click="SearchByCode_Click" />
-            </StackPanel>
-
-            <!-- Busca por Nome -->
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
-                <TextBlock Text="Buscar por Nome:" FontWeight="SemiBold" VerticalAlignment="Center" />
-                <TextBox x:Name="SearchByNameTextBox" 
-                         Width="200" 
-                         Margin="10,0,0,0" 
-                         VerticalAlignment="Center" 
+                         VerticalAlignment="Center"
                          Style="{StaticResource GeneralTextBox}"/>
                 <Button Content="Buscar" 
                         Style="{StaticResource ConfigButtonStyle}" 
                         Width="80" 
                         Height="30" 
                         Margin="10,0,0,0" 
-                        Click="SearchByName_Click" />
+                        Click="Search_Click" />
             </StackPanel>
-
-            <!-- Painel de Detalhes do Produto -->
-            <StackPanel Grid.Row="3" Margin="20" Visibility="Collapsed" x:Name="ProductDetailsPanel">
+            
+            <StackPanel Grid.Row="1" Margin="20" Visibility="Collapsed" x:Name="ProductDetailsPanel">
                 <TextBlock Text="Detalhes do Produto:" FontWeight="SemiBold" FontSize="16" Margin="0,0,0,5"/>
                 <TextBlock x:Name="ProductCodeText" Text="Código: " Margin="0,5,0,0"/>
                 <TextBlock x:Name="ProductNameText" Text="Nome: " Margin="0,5,0,0"/>
@@ -58,8 +41,7 @@
                 <TextBlock x:Name="ProductQuantityText" Text="Quantidade: " Margin="0,5,0,0"/>
             </StackPanel>
 
-            <!-- Botões de Ação -->
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,5">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,5">
                 <Button Content="Apagar" 
                         Style="{StaticResource ConfigButtonStyle}" 
                         Background="#5E0101" 

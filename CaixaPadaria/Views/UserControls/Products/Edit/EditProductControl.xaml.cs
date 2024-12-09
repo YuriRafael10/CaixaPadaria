@@ -17,7 +17,7 @@ namespace CaixaPadaria.Views.UserControls.Products.Edit
             InitializeComponent();
             LoadBrands();
             LoadCategories();
-            BarcodeTextBox.IsEnabled = false; // Desabilitar o campo de código de barras no início
+            BarcodeTextBox.IsEnabled = false;
         }
 
         private void LoadBrands()
@@ -45,27 +45,39 @@ namespace CaixaPadaria.Views.UserControls.Products.Edit
             using (var context = new AppDbContext())
             {
                 string searchTerm = SearchTextBox.Text.Trim();
-                var product = context.Products
-                    .FirstOrDefault(p => p.ProductId.ToString() == searchTerm || p.Name.Contains(searchTerm));
+                var products = context.Products.Where(p => p.ProductId.ToString() == searchTerm || p.Name.Contains(searchTerm)).ToList();
 
-                if (product != null)
-                {
-                    BarcodeTextBox.Text = product.ProductId.ToString();
-                    ProductNameTextBox.Text = product.Name;
-                    CostPriceTextBox.Text = product.CostPrice?.ToString() ?? "0";
-                    SalePriceTextBox.Text = product.SalePrice.ToString();
-                    QuantityTextBox.Text = product.Quantity.ToString();
-                    BrandComboBox.SelectedValue = product.BrandId;
-                    CategoryComboBox.SelectedValue = product.CategoryId;
-
-                    // Desabilitar o campo do código de barras para não permitir alteração
-                    BarcodeTextBox.IsEnabled = false;
-                }
-                else
+                if (products == null)
                 {
                     MessageBox.Show("Produto não encontrado.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                else
+                {
+                    OpenProductSearchWindow(products);
+                }
             }
+        }
+
+        private void OpenProductSearchWindow(IEnumerable<Product> products)
+        {
+            var searchWindow = new ProductSearchWindow(products.ToList());
+            if (searchWindow.ShowDialog() == true)
+            {
+                var selectedProduct = searchWindow.SelectedProduct;
+                if (selectedProduct != null)
+                {
+                    BarcodeTextBox.Text = selectedProduct.ProductId.ToString();
+                    ProductNameTextBox.Text = selectedProduct.Name;
+                    CostPriceTextBox.Text = selectedProduct.CostPrice?.ToString() ?? "0";
+                    SalePriceTextBox.Text = selectedProduct.SalePrice.ToString();
+                    QuantityTextBox.Text = selectedProduct.Quantity.ToString();
+                    BrandComboBox.SelectedValue = selectedProduct.BrandId;
+                    CategoryComboBox.SelectedValue = selectedProduct.CategoryId;
+
+                    BarcodeTextBox.IsEnabled = false;
+                }
+            }
+
         }
 
         private void SearchTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -117,7 +129,6 @@ namespace CaixaPadaria.Views.UserControls.Products.Edit
                         return;
                     }
 
-                    // Atualizar os campos do produto, exceto o ID
                     product.Name = ProductNameTextBox.Text.Trim();
                     product.CostPrice = decimal.TryParse(CostPriceTextBox.Text, out var costPrice) ? costPrice : 0;
                     product.SalePrice = decimal.TryParse(SalePriceTextBox.Text, out var salePrice) ? salePrice : 0;
@@ -125,7 +136,6 @@ namespace CaixaPadaria.Views.UserControls.Products.Edit
                     product.BrandId = (int)BrandComboBox.SelectedValue;
                     product.CategoryId = (int)CategoryComboBox.SelectedValue;
 
-                    // Salvar as alterações no banco de dados
                     context.SaveChanges();
                     MessageBox.Show("Produto atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                     ClearFields_Click(sender, e);
@@ -139,17 +149,14 @@ namespace CaixaPadaria.Views.UserControls.Products.Edit
 
         private void ClearFields_Click(object sender, RoutedEventArgs e)
         {
-            // Limpar campos e reabilitar o campo do código de barras
             BarcodeTextBox.Clear();
             ProductNameTextBox.Clear();
             CostPriceTextBox.Clear();
             SalePriceTextBox.Clear();
             QuantityTextBox.Clear();
+            SearchTextBox.Clear();
             BrandComboBox.SelectedItem = null;
             CategoryComboBox.SelectedItem = null;
-
-            // Reabilitar o campo do código de barras para permitir busca novamente
-            BarcodeTextBox.IsEnabled = false; // Desabilitar o campo de código de barras após limpar
         }
     }
 }

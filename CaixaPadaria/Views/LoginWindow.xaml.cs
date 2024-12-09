@@ -40,6 +40,13 @@ namespace CaixaPadaria.Views
                 }
             }
         }
+        private void SearchTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                SubmitClick(sender, e);
+            }
+        }
 
         public void GrantAccess()
         {

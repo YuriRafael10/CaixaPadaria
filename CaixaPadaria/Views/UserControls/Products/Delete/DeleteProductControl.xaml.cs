@@ -1,6 +1,5 @@
 ﻿using CaixaPadaria.Context;
 using CaixaPadaria.Models;
-using CaixaPadaria.Views.Windows;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,49 +13,16 @@ namespace CaixaPadaria.Views.UserControls.Products.Delete
             InitializeComponent();
         }
 
-        private void SearchByCode_Click(object sender, RoutedEventArgs e)
+        private void Search_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(SearchByCodeTextBox.Text) ||
-                !long.TryParse(SearchByCodeTextBox.Text, out long code))
-            {
-                MessageBox.Show("Por favor, insira um código válido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
             using (var context = new AppDbContext())
             {
-                var product = context.Products.FirstOrDefault(p => p.ProductId == code);
+                string searchTerm = SearchTextBox.Text.Trim();
+                var products = context.Products.Where(p => p.ProductId.ToString() == searchTerm || p.Name.Contains(searchTerm)).ToList();
 
-                if (product == null)
+                if (products == null)
                 {
                     MessageBox.Show("Produto não encontrado.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    OpenProductSearchWindow(new[] { product });
-                }
-            }
-        }
-
-        private void SearchByName_Click(object sender, RoutedEventArgs e)
-        {
-            string searchTerm = SearchByNameTextBox.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(searchTerm))
-            {
-                MessageBox.Show("Por favor, insira um nome válido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            using (var context = new AppDbContext())
-            {
-                var products = context.Products
-                    .Where(p => p.Name.Contains(searchTerm))
-                    .ToList();
-
-                if (products.Count == 0)
-                {
-                    MessageBox.Show("Nenhum produto encontrado.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -124,8 +90,7 @@ namespace CaixaPadaria.Views.UserControls.Products.Delete
 
         private void ClearFields()
         {
-            SearchByCodeTextBox.Clear();
-            SearchByNameTextBox.Clear();
+            SearchTextBox.Clear();
             ProductDetailsPanel.Visibility = Visibility.Collapsed;
         }
     }

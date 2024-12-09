@@ -26,7 +26,6 @@
                 <Button Content="Buscar" Style="{StaticResource ConfigButtonStyle}" Width="80" Height="30" Margin="10,0,10,0" Click="SearchProduct_Click"/>
             </StackPanel>
 
-            <!-- Detalhes do Produto -->
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,10,0,10">
                 <TextBlock Text="Código de Barras:" FontWeight="SemiBold" VerticalAlignment="Center"/>
                 <TextBox x:Name="BarcodeTextBox" Width="120" Margin="10,0,10,0" MaxLength="13" VerticalAlignment="Center"/>

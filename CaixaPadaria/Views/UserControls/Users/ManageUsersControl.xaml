@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="CaixaPadaria.Views.UserControls.Users.ManageUsersControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CaixaPadaria.Views.UserControls.Users"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="840">
+    <Grid>
+        <Grid Background="White" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="FUNCIONÁRIOS" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <Button x:Name="AddEmployeeButton" Style="{StaticResource ConfigButtonStyle}" Content="Registrar Funcionário" Click="AddEmployeeButton_Click"/>
+                <Button x:Name="EditEmployeeButton" Style="{StaticResource ConfigButtonStyle}" Content="Editar Funcionário" Width="200" Height="50" Click="EditEmployeeButton_Click" />
+                <Button x:Name="DeleteEmployeeButton" Style="{StaticResource ConfigButtonStyle}" Content="Excluir Funcionário" Width="200" Height="50" Click="DeleteEmployeeButton_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="CLIENTES" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <Button x:Name="AddClientButton" Style="{StaticResource ConfigButtonStyle}" Content="Registrar Cliente" Click="AddClientButton_Click"/>
+                <Button x:Name="EditClientButton" Style="{StaticResource ConfigButtonStyle}" Content="Editar Cliente" Width="200" Height="50" Click="EditClientButton_Click" />
+                <Button x:Name="DeleteClientButton" Style="{StaticResource ConfigButtonStyle}" Content="Excluir Cliente" Width="200" Height="50" Click="DeleteClientButton_Click"/>
+            </StackPanel>
+        </Grid>
+        <ContentControl x:Name="ContentArea" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</UserControl>

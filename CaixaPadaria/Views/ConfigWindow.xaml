@@ -33,7 +33,7 @@
                     <StackPanel Grid.Row="1" Margin="-1,20,0,20" HorizontalAlignment="Center">
                         <Image Source="Assets/Icons/cashClosing.png" ToolTip="FECHAMENTO DE CAIXA" Width="35" Height="35" Cursor="Hand" Style="{StaticResource settingsImg}" Margin="0,0,0,10"/>
                         <Image x:Name="ManageProductsButton" Source="Assets/Icons/mngProd.png" ToolTip="GERENCIAR PRODUTOS" Width="35" Height="35" Cursor="Hand" Style="{StaticResource settingsImg}" Margin="0,10,0,10" MouseLeftButtonUp="ManageProductsButton_Click"/>
-                        <Image Source="Assets/Icons/mngUsers.png" ToolTip="GERENCIAR USUÁRIOS" Width="35" Height="35" Cursor="Hand" Style="{StaticResource settingsImg}" Margin="0,10,0,10"/>
+                        <Image Source="Assets/Icons/mngUsers.png" ToolTip="GERENCIAR USUÁRIOS" Width="35" Height="35" Cursor="Hand" Style="{StaticResource settingsImg}" Margin="0,10,0,10" MouseLeftButtonUp="ManageUsersButton_Click"/>
                     </StackPanel>
                 </Grid>
             </Border>

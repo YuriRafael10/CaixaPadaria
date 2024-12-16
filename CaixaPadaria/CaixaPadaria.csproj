@@ -34,4 +34,9 @@
     <Resource Include="Views\Assets\settings.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\UserControls\Users\Edit\" />
+    <Folder Include="Views\UserControls\Users\Delete\" />
+  </ItemGroup>
+
 </Project>
